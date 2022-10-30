@@ -62,7 +62,7 @@ input[type=submit]{
   }
 
   .editButton{
-    width: 11%;
+    width: 50px;
     margin-top: 10px;
     background-color: black;
     color:white;
