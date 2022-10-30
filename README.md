@@ -14,16 +14,17 @@ Once run the above command, please run the both command below at the same time
 1. run this command in terminal => npm run dev 
 2. run this command in another terminal => php artisan serve
 
-THIS IS VERY IMPORTANT (image shows below)
+THIS IS VERY IMPORTANT
 *********************************
-PLEASE address displayed in the backend terminal
+PLEASE run the address displayed in the backend terminal (image shows below)
 *********************************
 
 <img width="664" alt="WeChat6866408f4499072f9e1bcda00d6d4e71" src="https://user-images.githubusercontent.com/116324663/198906626-f5b3fc80-1c2b-447e-96b0-94cf2534b0fa.png">
 
 For windows: 
 1. Once finish the 1-7 steps
-2. Must run xampp and mysql 
+2. Must run xampp and mysql (image shows below)
+3. Run the address address displayed in the backend terminal
 
 ![667241667145319_ pic](https://user-images.githubusercontent.com/116324663/198906647-9339964d-f034-431a-a3bb-8c51cf22a9bc.jpg)
 
