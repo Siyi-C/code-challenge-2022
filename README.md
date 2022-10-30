@@ -10,9 +10,9 @@ if there is no .env file in the project folder, run this command => cp .env.exam
 6. create a database called laravel in mysql
 7. php artisan migrate
 
-Once run the above command: 
+Once run the above command, please run the both command below at the same time
 1. run this command in terminal => npm run dev 
-2. run this command in another terminal => php artisan serve 
+2. run this command in another terminal => php artisan serve
 
 THIS IS VERY IMPORTANT (image shows below)
 *********************************
