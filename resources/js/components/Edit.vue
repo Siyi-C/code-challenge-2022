@@ -1,7 +1,7 @@
 <template>
 
     <div class="edit-container">
-        <form v-on:submit.prevent="editImage($route.params.id)">
+        <form v-on:submit.prevent="editImage($route.params.id); this.$router.push('/media-library')">
             <div>
                 <img :src="imageDetail.image_path" style="margin-top: 10px;"/>
             </div>

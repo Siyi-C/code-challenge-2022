@@ -34,7 +34,6 @@ export default function useImage(){
         try {
             await axios.put('/api/update/' + id, imageDetail.value);
             alert("Updated Successfully")
-            await router.push({name: "media"});
         } catch (error) {
            console.log(error)
         }
