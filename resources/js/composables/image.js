@@ -36,9 +36,7 @@ export default function useImage(){
             alert("Updated Successfully")
             await router.push({name: "media"});
         } catch (error) {
-            if(error.response.status === 422){
-                errors.value = error.response.data.errors
-            }
+           console.log(error)
         }
         
     }
