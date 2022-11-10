@@ -27,11 +27,12 @@ class imageController extends Controller
     {
         // dd($request);
         // $image_path = "";
+
         $storeImage = new Images();
         $storeImage->title = $request->json('title');
         $storeImage->description = $request->json('description');
         $storeImage->image_path = $request->json('image_path');
-        //$storeImage->image_id = $request->json('image_id');
+        $storeImage->large_image_path = $request->json('large_image_path');
         $storeImage->save();
         
     }
@@ -47,13 +48,11 @@ class imageController extends Controller
             $title =  $request->json('title');
             $description = $request->json('description');
 
-            if( $title != null)
-            {
+            if( $title != null) {
                 $image->title = $title;
             }
             
-            if($description != null)
-            {
+            if($description != null) {
                 $image->description = $description;
             }
            
@@ -67,5 +66,11 @@ class imageController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
 
+    }
+
+    public function destory($id)
+    {
+        $image = Images::find($id);
+        return $image->delete();
     }
 }

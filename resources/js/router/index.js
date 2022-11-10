@@ -2,8 +2,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from '@/view/HomeView.vue';
 import MediaView from '@/view/MediaLibraryView.vue';
-import Edit from '@/components/Edit.vue'
-
+// import Edit from '@/components/Edit.vue';
 
 // Vue.use(router)
 const routes = [
@@ -19,13 +18,18 @@ const routes = [
         component: MediaView
     },
 
-    {
-        path: '/media-library/:id/edit',
-        name:'ImageEdit',
-        component: Edit,
-        props: true
-    },
+    // {
+    //     path: '/media-library/:id',
+    //     name:'ImageEdit',
+    //     component: Edit,
+    //     props: true
+    // },
 
+    // {
+    //     path: '/media-library',
+    //     name:'popup',
+    //     component: popUp
+    // }
 
 ]
 

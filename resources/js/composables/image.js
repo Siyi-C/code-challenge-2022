@@ -1,13 +1,12 @@
 import { ref } from 'vue';
 import axios from 'axios';
-import { useRouter } from 'vue-router';
 
 export default function useImage(){
 
     const imageGallery = ref([])
     const imageDetail = ref([])
     const errors = ref([])
-    const router = useRouter
+    const imageId = ref([])
 
     const getImages = async() => {
         let response = await axios.get('/api/all')
@@ -15,14 +14,16 @@ export default function useImage(){
         //console.log(imageGallery.value)
     } 
 
-
     //single image details
     const getDetails = async(id) => {
         let response = await axios.get('/api/all/' + id)
+        console.log("single img response: ")
+        console.log(response)
         imageDetail.value = response.data
-        console.log("image "  + imageDetail.value)
+        imageId.value = response.data.id
+        console.log(response.data.id)
+        //console.log("image "  + imageDetail.value)
     } 
-
    
     // const storeImages = async(data) => {
     //     await axios.post('/api/add-image', data);
@@ -48,6 +49,7 @@ export default function useImage(){
         getDetails,
         // storeImages,
         editImage,
-        errors
+        errors,
+        imageId
     }
 }

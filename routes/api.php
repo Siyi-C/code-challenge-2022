@@ -29,3 +29,4 @@ Route::get('/all', [imageController::class, 'index']);
 Route::get('/all/{id}', [imageController::class, 'show']);
 Route::post('/add-image', [imageController::class, 'store']);
 Route::put('/update/{id}', [imageController::class, 'edit']);
+Route::delete('/delete/{id}', [imageController::class, 'destory']);

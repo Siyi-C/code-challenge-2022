@@ -1,36 +1,70 @@
 <template>
+    <label for="title">Title</label>
+    <input type="text" v-model="title"/>
 
-    <div class="edit-container">
-        <form v-on:submit.prevent="editImage($route.params.id); this.$router.push('/media-library')">
-            <div>
-                <img :src="imageDetail.image_path" style="margin-top: 10px;"/>
-            </div>
+    <label for="desc">Description</label>
+    <textarea rows = "5" cols = "60" name = "description" v-model="description">
+    </textarea>
 
-            <label for="title">Title</label>
-            <input type="text" v-model="imageDetail.title"/>
-
-            <label for="desc">Description</label>
-            <input type="text" v-model="imageDetail.description"/>
-
-            <input type="submit" value="Update"/>
-        </form> 
+    <div class="btns">
+        <div class="edit-btn" @click="edit(this.id)"><p>Save</p></div>
+        <div class="delete-btn" @click="deleted(this.id)"><p>Delete</p></div>
     </div>
    
+
+    <!-- <div class="edit-btn" @click="edit"><p>Edit</p></div> -->
 </template>
 
-<script setup>
-import { onMounted } from 'vue';
-import useImage from '../composables/image';
+<script>
+import axios from 'axios'
+export default {
+    data(){
+        return {
 
-const { imageDetail, editImage, getDetails, errors} = useImage()
+        }
+    },
+    props: {
+        title:{
+            type: String,
+            required: true
+        },
+        description:{
+            type: String,
+            required: true
+        },
+        id:{
+            type: String,
+            required: true
+        }
+    },
 
-const props = defineProps({
-    id: {
-        required: true,
-        type: String
+    methods: {
+        edit(id) {
+            axios.put('/api/update/' + id, { 
+                title: this.title,
+                description: this.description
+            }).then(alert("Updated"));
+        },
+
+        deleted(id) {
+            if(confirm('Are you sure you want to delete this image from Media Library?')) {
+                axios.delete('/api/delete/' + id, {}).then()
+                // this.$emit('eventname', [])
+                location.reload();
+            }
+           
+        }
+        // edit() {
+        //     axios.put('/api/update/' + id)
+        //     .then(res => {
+        //         if(res === 200){
+        //             console.log(updated)
+        //         }else{
+        //             console.log(res)
+        //         }
+        //     })
+        // }
     }
-})
-
-onMounted(() => getDetails(props.id))
+}
 
 </script>
