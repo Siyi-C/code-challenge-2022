@@ -11,8 +11,6 @@
         <div class="delete-btn" @click="deleted(this.id)"><p>Delete</p></div>
     </div>
    
-
-    <!-- <div class="edit-btn" @click="edit"><p>Edit</p></div> -->
 </template>
 
 <script>
@@ -48,22 +46,11 @@ export default {
 
         deleted(id) {
             if(confirm('Are you sure you want to delete this image from Media Library?')) {
-                axios.delete('/api/delete/' + id, {}).then()
-                // this.$emit('eventname', [])
+                axios.delete('/api/delete/' + id, {})
                 location.reload();
             }
            
         }
-        // edit() {
-        //     axios.put('/api/update/' + id)
-        //     .then(res => {
-        //         if(res === 200){
-        //             console.log(updated)
-        //         }else{
-        //             console.log(res)
-        //         }
-        //     })
-        // }
     }
 }
 

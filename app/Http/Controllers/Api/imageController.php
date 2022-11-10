@@ -12,7 +12,6 @@ class imageController extends Controller
     // api: /api/all
     public function index(){
         return Images::all();
-        // return response()->json($data);
     }
 
     // api: /api/all/{id}
@@ -25,8 +24,6 @@ class imageController extends Controller
     // api: /api/add-image
     public function store(Request $request)
     {
-        // dd($request);
-        // $image_path = "";
 
         $storeImage = new Images();
         $storeImage->title = $request->json('title');

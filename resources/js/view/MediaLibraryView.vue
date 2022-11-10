@@ -1,9 +1,6 @@
 <template> 
     <div class="container media">
         <div class="media__library">
-            <!-- <div v-for="(item, index) in list" :key="item.id">
-            <img :src="item.image_path" style="margin-top: 10px;" @click="singleImage(item.id)"/>
-            </div> -->
 
             <LightBox @clicked="onClickChild"
             :items="lightbox.items"
@@ -24,8 +21,6 @@
 
     </div>
    
-    <!-- <div class="edit-btn" @click="edit(this.id)"><p>Edit</p></div> -->
-   
 </template>
 
 <script>
@@ -40,7 +35,6 @@ export default {
 
     data(){
         return {
-        //    list:[],
            title:"",
            description: "",
            id:"",
@@ -59,14 +53,12 @@ export default {
             axios.get('/api/all')
             .then((res) => {
                 //console.log(res)
-                // this.list = res.data
                 this.lightbox.items = res.data
                 this.lightbox.images.thumbnails=[]
                 res.data.forEach(e => {
                     console.log("e", e)
                         this.lightbox.images.thumbnails.push(e.image_path)
                         this.lightbox.images.largeImages.push(e.large_image_path)
-                        // console.log(this.lightbox.descriptions)
                 });
             })
         },
@@ -74,11 +66,8 @@ export default {
         singleImage(id){
             axios.get('/api/all/' + id)
             .then((res) => {
-                //console.log(res)
                 this.title = res.data.title
                 this.description = res.data.description
-                //console.log(this.title)
-                // this.list = res.data
                 this.id = id
             })
         },
@@ -87,11 +76,7 @@ export default {
             this.singleImage(id)
             console.log(id)
         },
-
-        // updateparent(variable) {
-        //     this.parentvariable = variable
-        // }
-
+        
     },
     mounted(){
         this.allImageDetails()
